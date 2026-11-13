@@ -1,0 +1,51 @@
+===== temperature 0.2, top-k 20, 500 characters =====
+
+
+AUTOLYCUS:
+I will be so so death, that we have sent the state,
+And the shall be the senate of the season of the senses
+That the state of the company of the season of the country
+That thou wilt be so so the secret of the sea
+And should be the sound of the senators.
+
+Second Murderer:
+The had been and the lady of the world,
+And see the state of my brother and all the people
+That the sun of the death of the common of the country;
+And the world with the sense of the world,
+That will not shall be th
+
+===== temperature 0.8, top-k 20, 500 characters =====
+Put you not like more absent you call death?
+
+FRIAR LAURENCE:
+This consul be foul dear our horse. I have it is the noble.
+Why thranger me of this slistering what we blood
+That will the law--backless what thou how your true;
+And less he is like alone: he was he daughter?
+
+FRIAR LAURENCE:
+My sirion, and all to the else him and done;
+But are I belmisely friends and name me by him?
+
+KING RICHARD III:
+Who will be me delight consent; true on him:
+'Tis near all on the gainst the very body,
+That part th
+
+===== temperature 1.5, top-k 20, 500 characters =====
+Purgy him eavy and impossibity.
+Dy ithdrumbli welconce. 'WIs want
+which rebury?
+
+GLOUCESTER:
+Coriolate; wim the sheaks unclimbror there's dise, and
+Senver upwear death than the pumplishly
+Bebac: buy what thude conscy: therefant
+By some is.-'For lowards! But, tell, wouf?
+Nower o' thou which skyindow of alol doecmest loss tale
+But. But thrisper; my mwhifty maidins. I pamenty:
+If yet pounder plebes; thou couldst should'st crief my truze!--In ye's name
+Fralse not giving long
+Lie go oaths much from f
+

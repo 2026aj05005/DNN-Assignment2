@@ -1,0 +1,14 @@
+# Combined dependencies imported by Problem 1 and Problem 2 notebooks
+# Target environment: Python 3.12 or newer
+numpy==2.5.4
+pandas==3.1.1
+matplotlib==3.11.2
+scipy==1.18.1
+scikit-learn==1.9.1
+torch==2.15.0
+
+# Standard-library modules (csv, pathlib, random, re, time, urllib, zipfile, etc.)
+# are included with Python and do not need entries here.
+# PyArrow is not imported or required.
+# In Colab, keep the preinstalled CUDA-enabled torch build; this pin records
+# the target version but installing it may replace Colab's GPU-specific build.

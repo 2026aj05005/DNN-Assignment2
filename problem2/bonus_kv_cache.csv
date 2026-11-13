@@ -1,0 +1,4 @@
+Context,New_chars,Plain_s,Cached_s,Speedup,Cached_chars_per_s
+128,127,0.43,0.37,1.1,339
+256,255,0.92,0.75,1.2,339
+512,511,1.87,1.5,1.3,342

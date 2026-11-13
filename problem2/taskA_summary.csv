@@ -1,0 +1,4 @@
+Model,Accuracy,MacroF1,Params,s_per_epoch
+"Encoder, no PE",0.911 ± 0.012,0.910 ± 0.012,105222,0.40
+"Encoder, learned PE",0.914 ± 0.009,0.913 ± 0.008,106246,0.43
+"Encoder, sinusoidal PE",0.906 ± 0.011,0.906 ± 0.012,105222,0.41
