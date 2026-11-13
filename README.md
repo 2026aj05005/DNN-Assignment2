@@ -1,25 +1,24 @@
-# DNN Assignment 2
+# DNN Assignment 2 README
 
 ## Environment
 
-Both notebooks were executed in **Google Colab with a GPU T4**. The notebooks use Python, PyTorch, NumPy, pandas, Matplotlib, SciPy, and scikit-learn; see [`requirements.txt`](requirements.txt) for the recorded package versions. Colab already provides a CUDA-enabled PyTorch build, so do not reinstall the pinned `torch` version there if that would replace the GPU-enabled build. The notebooks download UCI HAR and (for Problem 2) Tiny Shakespeare as needed, so an internet connection is required on the first run.
-
-A GPU is recommended but not mandatory: a free Colab T4 is sufficient, and Problem 1 can also run on a laptop CPU. For a CPU-only **Problem 2 language-model** run, change its configuration to `D_LM = 64` and `LAYERS_LM = 2`; this is a smaller configuration and will not reproduce the full T4 language-model results.
+Both notebooks were run in Google Colab with a T4 GPU runtime. Exact Python and package versions are recorded in `requirements.txt` at the assignment root. The work uses PyTorch, NumPy, pandas, Matplotlib, and scikit-learn; no pretrained weights are used. Internet access is required on the first run to download UCI HAR and Tiny Shakespeare. Colab already provides GPU-enabled PyTorch; avoid reinstalling a pinned CPU-only build over it.
 
 ## How to run
 
-1. Open each notebook in Colab (or Jupyter) and select **Run all**. Use a fresh runtime and the repository's directory structure. Run Problem 1 first so it creates the root `results.csv`; Problem 2 reads it for the comparison with the best Problem 1 HAR model. Both notebooks set their device automatically and download the required datasets.
-2. Run `problem1/problem1.ipynb` for the scratch RNN/LSTM/GRU checks and the HAR and adding-task experiments. It writes results to `results.csv` and figures under `problem1/figures/`.
-3. Run `problem2/problem2.ipynb` for attention/encoder checks, HAR positional-encoding experiments, and the character language model and ablations. It appends results to `results.csv` and saves figures under `problem2/figures/`.
+1. Upload and unzip the assignment folder in Colab, select **Runtime > Change runtime type > T4 GPU**, and use the submission folder structure.
+2. Run `problem1/problem1.ipynb` first. Set the working directory to `problem1` (from the assignment root, run `%cd problem1`), then select **Runtime > Restart and run all**. This runs scratch-cell checks, HAR and adding experiments, the gradient plot, hidden-size sweep, and individual ablation.
+3. Return to the assignment root, set the working directory to `problem2` (run `%cd problem2`), and run `problem2/problem2.ipynb` with **Runtime > Restart and run all**. This runs attention and encoder checks, Task A, the character model, ablations, and optional bonuses.
 
-For reproducibility, keep the configured seeds `(1, 42, 123)`, run every cell in order, and do not enable `QUICK_TEST` in Problem 2 for the full experiments. Results can vary slightly across hardware/software even with fixed seeds.
+Both notebooks use relative paths and append to the root `results.csv`. Run Problem 1 before Problem 2 so the Task A comparison can read the Problem 1 HAR results. For a clean rerun, back up or clear the old results file first to avoid duplicate rows. Figures and summaries are saved in their problem folders; Problem 2 also writes `generated_samples.txt`.
 
-## Student variant
+## Student variant and settings
 
-Student ID: **2026AJ05005**. The last digit is odd, so Problem 1 selects the **forget-bias** Task 5(c) ablation. Problem 1 uses hidden size 64 and seeds `(1, 42, 123)`. Problem 2 uses `d = 128`, 4 heads, and 4 layers for its language model on the T4; its HAR encoder uses `d = 64`, 4 heads, and 2 layers.
+Problem 1 uses hidden size 64, seeds 1, 42, and 123, Adam at 1e-3, batch size 128, 20 HAR epochs, and 30 adding-task epochs at sequence lengths 50, 100, 200, and 400. The odd-parity individual ablation compares LSTM forget-gate bias 0 and 1 at T=200.
 
-## Runtime and known limitations
+Problem 2 Task A uses 8-step HAR patches, d=64, four heads, two encoder blocks, and FFN width 256. Task B uses context 128, d=128, four heads, four blocks, FFN width 512, batch size 64, and 5,000 iterations. The heads and no-mask ablations use 1,500 iterations. For CPU-only Task B, use d=64 and two layers and report the changed configuration.
 
-The full end-to-end wall-clock time for both notebooks was **not recorded** in the committed notebook outputs; record the elapsed time from a complete fresh Colab T4 run here before submission. Available timing evidence: the Problem 2 HAR encoders report about **0.39–0.43 seconds per epoch**, and the main 5,000-iteration language-model training reports **182 seconds**. Total time depends on all experiments, downloads, and Colab availability.
+## Runtime and limitations
 
-The assignment's individualisation-variants table and instructor-provided attention example were not available; the notebooks document the chosen settings and use their own hand-checkable attention example. Dataset download steps require internet access. Keep the written report within the assignment's **six-page maximum**; this README is intended as the run guide, not the report.
+The full Problem 2 notebook reports about **18.2 minutes** on the T4; the main language-model training itself is 182 seconds. The saved outputs do not record the full Problem 1 wall-clock duration, so the combined runtime is not available here; add the elapsed time from its Colab run before submission. Context-scaling measurements are noisy. The T=200 forget-bias ablation did not solve the adding task, and cache timings at contexts 256 and 512 use untrained models for timing only.
+
